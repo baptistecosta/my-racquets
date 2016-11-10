@@ -1,0 +1,31 @@
+imports:
+    - { resource: config.yml }
+
+framework:
+    router:
+        resource: "%kernel.root_dir%/config/routing_dev.yml"
+        strict_requirements: true
+    profiler: { only_exceptions: false }
+
+web_profiler:
+    toolbar: true
+    intercept_redirects: false
+
+monolog:
+    handlers:
+        main:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+            channels: [!event]
+        console:
+            type:   console
+            channels: [!event, !doctrine]
+
+jms_serializer:
+    metadata:
+        # In debug mode, the serializer will perform a bit more filesystem checks to see whether the data that it has
+        # cached is still valid. These checks are useful during development so that you do not need to manually clear
+        # cache folders, however in production they are just unnecessary overhead.
+        debug: true
+        cache: false

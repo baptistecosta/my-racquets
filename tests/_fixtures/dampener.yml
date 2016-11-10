@@ -1,0 +1,5 @@
+AppBundle\Entity\Dampener:
+  dampener.babolat-3-gr:
+    brand: "@brand.babolat"
+    slug: "babolat-3-gr"
+    name: "Babolat 3 gr"

@@ -1,0 +1,5 @@
+AppBundle\Entity\OverGrip:
+  over_grip.babolat-thin:
+    brand: "@brand.babolat"
+    slug: "babolat-thin"
+    name: "Babolat Thin"

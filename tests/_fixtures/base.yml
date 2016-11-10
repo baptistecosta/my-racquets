@@ -1,0 +1,9 @@
+include:
+  - brand.yml
+  - dampener.yml
+  - over_grip.yml
+  - racquet.yml
+  - racquet_string.yml
+  - racquet_string_type.yml
+  - stringing_pattern.yml
+  - user.yml

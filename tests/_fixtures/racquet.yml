@@ -1,0 +1,12 @@
+AppBundle\Entity\Racquet:
+  racquet.pro_staff_classic_6_1:
+    brand: "@brand.wilson"
+    staticWeight: 341
+    headSize: 610
+    stringingPattern: "@stringing_pattern.16x18"
+    balance: 30.5
+    string: "@racquet_string.msv_hex"
+    dampener: "@dampener.babolat-3-gr"
+    overGrip: "@over_grip.babolat-thin"
+    distanceToTopString: 67.1
+    user: "@user.baptiste"

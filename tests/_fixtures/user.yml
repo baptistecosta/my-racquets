@@ -1,0 +1,6 @@
+AppBundle\Entity\User:
+    user.baptiste:
+        firstname: Baptiste
+        lastname: Costa
+        email: glen@sefaireaider.com
+        password: $2y$13$MlzTlUXMkpf3MxAvuWk6rOdOFys8uj2f3EFxB3bLoDHnwkwK5Q/RO # testtest

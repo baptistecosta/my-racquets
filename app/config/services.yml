@@ -1,0 +1,40 @@
+services:
+
+    app.group_serializer:
+        class: AppBundle\Service\GroupSerializer
+        arguments:
+            - '@gl3n_serialization_group.resolver'
+            - '@jms_serializer'
+
+    # Testing
+
+    app.testing.purger:
+        class: 'AppBundle\Testing\Purger'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+    app.testing.fixtures_loader:
+        class: 'AppBundle\Testing\Fixtures\FixturesLoader'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+
+    # Vendor
+
+    gedmo.listener.timestampable:
+        class: Gedmo\Timestampable\TimestampableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+    app.form.utils:
+        class: AppBundle\Form\Utils
+        arguments:
+            - '@translator'
+
+    ##################################################  USER  ##################################################
+
+    app.user.registrator:
+        class: AppBundle\Service\User\Registrator
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@security.encoder_factory'

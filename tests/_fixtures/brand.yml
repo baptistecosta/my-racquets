@@ -1,0 +1,7 @@
+AppBundle\Entity\Brand:
+  brand.babolat:
+    slug: "babolat"
+    name: "Babolat"
+  brand.wilson:
+    slug: "wilson"
+    name: "Wilson"

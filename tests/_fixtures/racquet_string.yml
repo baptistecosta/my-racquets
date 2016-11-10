@@ -1,0 +1,4 @@
+AppBundle\Entity\RacquetString:
+  racquet_string.msv_hex:
+    name: "MSV Hex"
+    type: "@racquet_string_type.monofilament"

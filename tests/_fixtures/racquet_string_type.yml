@@ -1,0 +1,7 @@
+AppBundle\Entity\RacquetStringType:
+  racquet_string_type.monofilament:
+    slug: "monofilament"
+    name: "Monofilament"
+  racquet_string_type.multifilament:
+    slug: "multifilament"
+    name: "Multifilament"

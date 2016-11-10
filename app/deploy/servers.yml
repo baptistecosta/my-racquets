@@ -1,0 +1,10 @@
+staging:
+    host: sfa-web12.srv.proceau.net
+    user: admin
+    stage: staging
+    branch: development
+    identity_file:
+        private_key: /home/ubuntu/.ssh/id_staging
+        password:
+    deploy_path: /home/web/sefaireaider.com/staging/api-trust
+    forward_agent:

@@ -1,0 +1,4 @@
+AppBundle\Entity\StringingPattern:
+  stringing_pattern.16x18:
+    mains: 16
+    crosses: 19
