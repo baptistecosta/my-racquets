@@ -1,1 +1,0 @@
-web: composer install --no-dev --no-interaction
