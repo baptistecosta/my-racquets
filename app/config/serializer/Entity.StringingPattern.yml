@@ -1,0 +1,9 @@
+AppBundle\Entity\StringingPattern:
+  exclusion_policy: ALL
+  properties:
+    id:
+      groups: ['stringing_pattern.s']
+    mains:
+      groups: ['stringing_pattern.s']
+    crosses:
+      groups: ['stringing_pattern.s']

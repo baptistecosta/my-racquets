@@ -1,0 +1,9 @@
+AppBundle\Entity\Brand:
+  exclusion_policy: ALL
+  properties:
+    id:
+      groups: ['brand.s']
+    slug:
+      groups: ['brand.s']
+    name:
+      groups: ['brand.s']

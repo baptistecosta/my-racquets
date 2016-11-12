@@ -18,6 +18,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User implements UserInterface
 {
+    const EMAIL_BAPTISTE = 'baptiste.costa@gmail.com';
+
     /**
      * @var int
      *
@@ -82,8 +84,6 @@ class User implements UserInterface
     }
 
     /**
-     * Get id
-     *
      * @return integer
      */
     public function getId()
@@ -92,11 +92,9 @@ class User implements UserInterface
     }
 
     /**
-     * Set firstname
-     *
      * @param string $firstname
      *
-     * @return User
+     * @return $this
      */
     public function setFirstname($firstname)
     {
@@ -106,8 +104,6 @@ class User implements UserInterface
     }
 
     /**
-     * Get firstname
-     *
      * @return string
      */
     public function getFirstname()
@@ -116,11 +112,9 @@ class User implements UserInterface
     }
 
     /**
-     * Set lastname
-     *
      * @param string $lastname
      *
-     * @return User
+     * @return $this
      */
     public function setLastname($lastname)
     {
@@ -130,8 +124,6 @@ class User implements UserInterface
     }
 
     /**
-     * Get lastname
-     *
      * @return string
      */
     public function getLastname()
@@ -140,11 +132,9 @@ class User implements UserInterface
     }
 
     /**
-     * Set password
-     *
      * @param string $password
      *
-     * @return User
+     * @return $this
      */
     public function setPassword($password)
     {
@@ -154,8 +144,6 @@ class User implements UserInterface
     }
 
     /**
-     * Get password
-     *
      * @return string
      */
     public function getPassword()
@@ -164,8 +152,6 @@ class User implements UserInterface
     }
 
     /**
-     * Set plain password
-     *
      * @param string $plainPassword
      *
      * @return User
@@ -178,8 +164,6 @@ class User implements UserInterface
     }
 
     /**
-     * Get plain password
-     *
      * @return string
      */
     public function getPlainPassword()
@@ -188,8 +172,6 @@ class User implements UserInterface
     }
 
     /**
-     * Set email
-     *
      * @param string $email
      *
      * @return User
@@ -202,13 +184,45 @@ class User implements UserInterface
     }
 
     /**
-     * Get email
-     *
      * @return string
      */
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * @param Racquet $racquet
+     * @return $this
+     */
+    public function addRacquet(Racquet $racquet)
+    {
+        $racquet->setUser($this);
+        $this->racquets[] = $racquet;
+
+        return $this;
+    }
+
+    /**
+     * @param Racquet[]|ArrayCollection $racquets
+     *
+     * @return $this
+     */
+    public function setRacquets(ArrayCollection $racquets)
+    {
+        foreach ($racquets as $racquet) {
+            $this->addRacquet($racquet);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Racquet[]|ArrayCollection
+     */
+    public function getRacquets()
+    {
+        return $this->racquets;
     }
 
     /**

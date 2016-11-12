@@ -1,69 +1,14 @@
 gl3n_serialization_group:
-    groups:
-
-        # ======== ACTIVITY ======== #
-
-        activity.l:
-            include:
-                - product.s
-
-        # ======== PRODUCT QUESTION ======== #
-
-        product_question.l:
-            include:
-                - product.s
-                - question.l
-
-        # ======== QUESTION ======== #
-
-        question.l:
-            include:
-                - choice.s
-
-        # ======== ANSWER ======== #
-
-        answer.s:
-            include:
-                - choice.s
-
-        answer.l:
-            include:
-                - request.s
-                - choice.s
-
-        # ======== REQUEST ======== #
-
-        request.s:
-            include:
-                - address.s
-
-        request.l:
-            include:
-                - user.s
-                - product.s
-                - address.s
-                - payment_attempt.s
-                - intervention_time_range.s
-                - sent_request.s
-                - answer.s
-
-        # ======== PAYMENT ATTEMPT ======== #
-
-        payment_attempt.l:
-            include:
-                - request.s
-
-        # ======== SENT REQUEST ======== #
-
-        sent_request.l:
-            include:
-                - request.s
-                - professional.s
-
-        # ======== PROFESSIONAL ======== #
-
-        professional.l:
-            include:
-                - address.s
-                - activity.s
-                - sent_request.s
+  groups:
+    racquet.l:
+      include:
+        - brand.s
+        - dampener.s
+        - over_grip.s
+        - racquet_string.s
+        - racquet_string_type.s
+        - stringing_pattern.s
+        - user.s
+    user.l:
+      include:
+        - racquet.l

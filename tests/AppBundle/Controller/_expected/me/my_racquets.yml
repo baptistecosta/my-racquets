@@ -1,0 +1,22 @@
+---
+- staticWeight: 341
+  headSize: 610
+  balance: 30.5
+  distanceToTopString: 67.1
+  brand:
+    slug: wilson
+    name: Wilson
+  stringingPattern:
+    mains: 16
+    crosses: 19
+  string:
+    name: MSV Hex
+    type:
+      slug: monofilament
+      name: Monofilament
+  dampener:
+    slug: babolat-3-gr
+    name: Babolat 3 gr
+  overGrip:
+    slug: babolat-thin
+    name: Babolat Thin

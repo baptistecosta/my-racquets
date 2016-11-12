@@ -1,0 +1,9 @@
+AppBundle\Entity\RacquetStringType:
+  exclusion_policy: ALL
+  properties:
+    id:
+      groups: ['racquet_string_type.s']
+    slug:
+      groups: ['racquet_string_type.s']
+    name:
+      groups: ['racquet_string_type.s']

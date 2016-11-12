@@ -1,13 +1,13 @@
 AppBundle\Entity\User:
-    exclusion_policy: ALL
-    properties:
-        id:
-            groups: ['user.s', 'user.l']
-        firstname:
-            groups: ['user.s', 'user.l']
-        lastname:
-            groups: ['user.s', 'user.l']
-        phone:
-            groups: ['user.s', 'user.l']
-        email:
-            groups: ['user.s', 'user.l']
+  exclusion_policy: ALL
+  properties:
+    id:
+      groups: ['user.l', 'user.s']
+    firstname:
+      groups: ['user.l', 'user.s']
+    lastname:
+      groups: ['user.l', 'user.s']
+    email:
+      groups: ['user.l', 'user.s']
+    racquets:
+      groups: ['user.l']

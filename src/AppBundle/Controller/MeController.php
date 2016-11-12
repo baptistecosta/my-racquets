@@ -2,11 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Address;
-use AppBundle\Form\Type\AddressType;
 use AppBundle\Form\Type\UserType;
-use AppBundle\Entity\Request as AppRequest;
-use AppBundle\Form\Type\RequestType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -30,9 +26,7 @@ class MeController extends AbstractController
      */
     public function getAction()
     {
-        $user = $this->getUser();
-
-        return $this->createResponse($user, 'user.l');
+        return $this->createResponse($this->getUser(), 'user.l');
     }
 
     /**
@@ -66,78 +60,19 @@ class MeController extends AbstractController
     }
 
     /**
-     * @Route("/requests", name="my_requests")
+     * @Route("/racquets")
      * @Method("GET")
+     *
      * @Security("has_role('ROLE_USER')")
-     * @return Response
-     */
-    public function listMyRequestsAction()
-    {
-        return $this->createResponse(
-            $this->getUser()->getRequests(),
-            'request.s'
-        );
-    }
-
-    /**
-     * @Route("/requests")
-     * @Method("POST")
-     * @Security("has_role('ROLE_USER')")
-     * @param Request $request
      *
      * @return JsonResponse
      */
-    public function createRequestAction(Request $request)
+    public function myRacquetsAction()
     {
-        $appRequest = (new AppRequest())
-            ->setUser($this->getUser())
-            ->setPrice(10)
-            ->setCreatedAt(new \DateTime());
+        $racquets = $this->get('doctrine.orm.entity_manager')
+            ->getRepository('AppBundle:Racquet')
+            ->findBy(['user' => $this->getUser()]);
 
-        $form = $this
-            ->createForm(RequestType::class, $appRequest)
-            ->submit($request->request->all());
-
-        if (!$form->isValid()) {
-            return new JsonResponse($this->get('app.form.utils')->getErrorsAsArray($form), 400);
-        }
-
-        $this->getEntityManager()->persist($appRequest);
-        $this->getEntityManager()->flush();
-
-        return $this->createResponse(
-            $appRequest,
-            'request.l',
-            Response::HTTP_CREATED
-        );
-    }
-
-    /**
-     * @Route("/address")
-     * @Method("POST")
-     * @Security("has_role('ROLE_USER')")
-     *
-     * @param Request $request
-     *
-     * @return JsonResponse
-     */
-    public function addAddressAction(Request $request)
-    {
-        $address = new Address();
-
-        $form = $this->createForm(AddressType::class, $address);
-        $form->submit($request->request->all());
-
-        if (!$form->isValid()) {
-            return new JsonResponse($this->get('app.form.utils')->getErrorsAsArray($form), 400);
-        }
-
-        $address->setUser($this->getUser());
-
-        $entityManager = $this->get('doctrine.orm.entity_manager');
-        $entityManager->persist($address);
-        $entityManager->flush();
-
-        return $this->createResponse($address, 'address.l', Response::HTTP_CREATED);
+        return $this->createResponse($racquets, 'racquet.l');
     }
 }

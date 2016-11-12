@@ -1,0 +1,9 @@
+AppBundle\Entity\OverGrip:
+  exclusion_policy: ALL
+  properties:
+    id:
+      groups: ['over_grip.s']
+    slug:
+      groups: ['over_grip.s']
+    name:
+      groups: ['over_grip.s']

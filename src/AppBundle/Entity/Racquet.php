@@ -20,14 +20,6 @@ class Racquet
     private $id;
 
     /**
-     * @var Brand
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Brand", inversedBy="raquets")
-     * @ORM\JoinColumn(name="brand_id")
-     */
-    private $brand;
-
-    /**
      * In grams
      *
      * @var int
@@ -46,19 +38,34 @@ class Racquet
     private $headSize;
 
     /**
+     * @var float
+     *
+     * @ORM\Column(name="balance", type="decimal", precision=4, scale=1)
+     */
+    private $balance;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="distance_to_top_string", type="decimal", precision=4, scale=1)
+     */
+    private $distanceToTopString;
+
+    /**
+     * @var Brand
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Brand", inversedBy="raquets")
+     * @ORM\JoinColumn(name="brand_id")
+     */
+    private $brand;
+
+    /**
      * @var StringingPattern
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\StringingPattern", inversedBy="raquets")
      * @ORM\JoinColumn(name="stringing_pattern_id")
      */
     private $stringingPattern;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="balance", type="decimal", precision=4, scale=1)
-     */
-    private $balance;
 
     /**
      * @var RacquetString
@@ -85,17 +92,29 @@ class Racquet
     private $overGrip;
 
     /**
-     * @var float
-     *
-     * @ORM\Column(name="distance_to_top_string", type="decimal", precision=4, scale=1)
-     */
-    private $distanceToTopString;
-
-    /**
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="racquets")
      * @ORM\JoinColumn(name="user_id", nullable=false)
      */
     private $user;
+
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     * @return $this
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
 }

@@ -1,0 +1,9 @@
+AppBundle\Entity\Dampener:
+  exclusion_policy: ALL
+  properties:
+    id:
+      groups: ['dampener.s']
+    slug:
+      groups: ['dampener.s']
+    name:
+      groups: ['dampener.s']

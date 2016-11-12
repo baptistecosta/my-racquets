@@ -20,3 +20,5 @@
 /web/bundles/
 .idea/
 .DS_Store
+node_modules/
+static/
