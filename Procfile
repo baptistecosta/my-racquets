@@ -1,1 +1,1 @@
-web: cp app/config/parameters.yml.dist app/config/parameters.yml
+web: composer install --no-dev --no-interaction
