@@ -31,6 +31,10 @@ task('deploy:writable', function () {
     run('cd {{release_path}} && chmod -R 777 var/cache');
 })->desc('Permissions on cache dir');
 
+task('app:load-fixtures', function () {
+    run('cd {{release_path}} && bin/console app:load-fixtures -f');
+})->desc('Permissions on cache dir');
+
 task('deploy', [
     'deploy:prepare',
     'deploy:release',
@@ -39,6 +43,7 @@ task('deploy', [
     'deploy:shared',
     'deploy:vendors',
     'database:migrate',
+    'app:load-fixtures',
     'deploy:cache:warmup',
     'deploy:writable',
     'deploy:symlink',
