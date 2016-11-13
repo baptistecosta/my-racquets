@@ -47,6 +47,7 @@ class Purger
             'dampener',
             'over_grip',
             'racquet',
+            'racquet_model',
             'racquet_string',
             'racquet_string_type',
             'stringing_pattern',

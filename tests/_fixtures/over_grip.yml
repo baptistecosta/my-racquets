@@ -3,3 +3,7 @@ AppBundle\Entity\OverGrip:
     brand: "@brand.babolat"
     slug: "babolat-thin"
     name: "Babolat Thin"
+  over_grip.wilson_pro:
+    brand: "@brand.wilson"
+    slug: "wilson-pro-overgrip"
+    name: "Wilson Pro Overgrip"

@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Racquet;
+use AppBundle\Form\Type\RacquetType;
 use AppBundle\Form\Type\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -62,7 +64,6 @@ class MeController extends AbstractController
     /**
      * @Route("/racquets")
      * @Method("GET")
-     *
      * @Security("has_role('ROLE_USER')")
      *
      * @return JsonResponse
@@ -74,5 +75,34 @@ class MeController extends AbstractController
             ->findBy(['user' => $this->getUser()]);
 
         return $this->createResponse($racquets, 'racquet.l');
+    }
+
+    /**
+     * @Route("/racquets")
+     * @Method("POST")
+     * @Security("has_role('ROLE_USER')")
+     *
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
+    public function createRacquet(Request $request)
+    {
+        $racquet = new Racquet();
+
+        $form = $this->createForm(RacquetType::class, $racquet);
+        $form->submit($request->request->all());
+
+        if (!$form->isValid()) {
+            return new JsonResponse($this->get('app.form.utils')->getErrorsAsArray($form), 400);
+        }
+
+        $racquet->setUser($this->getUser());
+
+        $entityManager = $this->get('doctrine.orm.entity_manager');
+        $entityManager->persist($racquet);
+        $entityManager->flush();
+
+        return $this->createResponse($racquet, 'racquet.l', Response::HTTP_CREATED);
     }
 }

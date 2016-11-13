@@ -5,10 +5,15 @@ gl3n_serialization_group:
         - brand.s
         - dampener.s
         - over_grip.s
+        - racquet_base
+        - racquet_model.s
         - racquet_string.s
         - racquet_string_type.s
         - stringing_pattern.s
         - user.s
+    racquet_model.s:
+      include:
+        - racquet_base
     user.l:
       include:
         - racquet.l

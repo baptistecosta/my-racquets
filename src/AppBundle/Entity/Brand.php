@@ -39,7 +39,7 @@ class Brand
      *
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Racquet", mappedBy="brand")
      */
-    private $raquets;
+    private $racquets;
 
     /**
      * @var Dampener[]|ArrayCollection
@@ -54,4 +54,117 @@ class Brand
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\OverGrip", mappedBy="brand")
      */
     private $overGrips;
+
+    /**
+     * Brand constructor
+     */
+    public function __construct()
+    {
+        $this->racquets = new ArrayCollection();
+        $this->dampeners = new ArrayCollection();
+        $this->overGrips = new ArrayCollection();
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     * @return $this
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Racquet[]|ArrayCollection
+     */
+    public function getRacquets()
+    {
+        return $this->racquets;
+    }
+
+    /**
+     * @param Racquet[]|ArrayCollection $racquets
+     * @return $this
+     */
+    public function setRacquets(ArrayCollection $racquets)
+    {
+        $this->racquets = $racquets;
+
+        return $this;
+    }
+
+    /**
+     * @return Dampener[]|ArrayCollection
+     */
+    public function getDampeners()
+    {
+        return $this->dampeners;
+    }
+
+    /**
+     * @param Dampener[]|ArrayCollection $dampeners
+     * @return $this
+     */
+    public function setDampeners(ArrayCollection $dampeners)
+    {
+        $this->dampeners = $dampeners;
+
+        return $this;
+    }
+
+    /**
+     * @return OverGrip[]|ArrayCollection
+     */
+    public function getOverGrips()
+    {
+        return $this->overGrips;
+    }
+
+    /**
+     * @param OverGrip[]|ArrayCollection $overGrips
+     * @return $this
+     */
+    public function setOverGrips(ArrayCollection $overGrips)
+    {
+        $this->overGrips = $overGrips;
+
+        return $this;
+    }
 }

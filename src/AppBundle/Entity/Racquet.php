@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity()
  * @ORM\Table(name="racquet")
  */
-class Racquet
+class Racquet extends RacquetBase
 {
     /**
      * @var int
@@ -17,55 +17,15 @@ class Racquet
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
-     * In grams
+     * @var RacquetModel
      *
-     * @var int
-     *
-     * @ORM\Column(name="static_weight", type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\RacquetModel", inversedBy="racquets")
+     * @ORM\JoinColumn(name="model_id")
      */
-    private $staticWeight;
-
-    /**
-     * In centimeters
-     *
-     * @var int
-     *
-     * @ORM\Column(name="head_size", type="integer")
-     */
-    private $headSize;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="balance", type="decimal", precision=4, scale=1)
-     */
-    private $balance;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="distance_to_top_string", type="decimal", precision=4, scale=1)
-     */
-    private $distanceToTopString;
-
-    /**
-     * @var Brand
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Brand", inversedBy="raquets")
-     * @ORM\JoinColumn(name="brand_id")
-     */
-    private $brand;
-
-    /**
-     * @var StringingPattern
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\StringingPattern", inversedBy="raquets")
-     * @ORM\JoinColumn(name="stringing_pattern_id")
-     */
-    private $stringingPattern;
+    protected $model;
 
     /**
      * @var RacquetString
@@ -73,7 +33,7 @@ class Racquet
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\RacquetString", inversedBy="raquets")
      * @ORM\JoinColumn(name="strings_id")
      */
-    private $string;
+    protected $string;
 
     /**
      * @var Dampener
@@ -81,15 +41,15 @@ class Racquet
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Dampener", inversedBy="raquets")
      * @ORM\JoinColumn(name="dampener_id")
      */
-    private $dampener;
+    protected $dampener;
 
     /**
      * @var OverGrip
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\OverGrip", inversedBy="raquets")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\OverGrip", inversedBy="racquets")
      * @ORM\JoinColumn(name="over_grip_id")
      */
-    private $overGrip;
+    protected $overGrip;
 
     /**
      * @var User
@@ -97,7 +57,91 @@ class Racquet
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="racquets")
      * @ORM\JoinColumn(name="user_id", nullable=false)
      */
-    private $user;
+    protected $user;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return RacquetModel
+     */
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    /**
+     * @param RacquetModel $model
+     * @return $this
+     */
+    public function setModel(RacquetModel $model)
+    {
+        $this->model = $model;
+
+        return $this;
+    }
+
+    /**
+     * @return RacquetString
+     */
+    public function getString()
+    {
+        return $this->string;
+    }
+
+    /**
+     * @param RacquetString $string
+     * @return $this
+     */
+    public function setString(RacquetString $string = null)
+    {
+        $this->string = $string;
+
+        return $this;
+    }
+
+    /**
+     * @return Dampener
+     */
+    public function getDampener()
+    {
+        return $this->dampener;
+    }
+
+    /**
+     * @param Dampener $dampener
+     * @return $this
+     */
+    public function setDampener(Dampener $dampener = null)
+    {
+        $this->dampener = $dampener;
+
+        return $this;
+    }
+
+    /**
+     * @return OverGrip
+     */
+    public function getOverGrip()
+    {
+        return $this->overGrip;
+    }
+
+    /**
+     * @param OverGrip $overGrip
+     * @return $this
+     */
+    public function setOverGrip(OverGrip $overGrip = null)
+    {
+        $this->overGrip = $overGrip;
+
+        return $this;
+    }
 
     /**
      * @return User

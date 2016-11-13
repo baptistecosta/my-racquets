@@ -39,5 +39,70 @@ class StringingPattern
      *
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Racquet", mappedBy="stringingPattern")
      */
-    private $raquets;
+    private $racquets;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMains()
+    {
+        return $this->mains;
+    }
+
+    /**
+     * @param int $mains
+     * @return $this
+     */
+    public function setMains($mains)
+    {
+        $this->mains = $mains;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCrosses()
+    {
+        return $this->crosses;
+    }
+
+    /**
+     * @param int $crosses
+     * @return $this
+     */
+    public function setCrosses($crosses)
+    {
+        $this->crosses = $crosses;
+
+        return $this;
+    }
+
+    /**
+     * @return Racquet[]|ArrayCollection
+     */
+    public function getRacquets()
+    {
+        return $this->racquets;
+    }
+
+    /**
+     * @param Racquet[]|ArrayCollection $racquets
+     * @return $this
+     */
+    public function setRacquets(ArrayCollection $racquets)
+    {
+        $this->racquets = $racquets;
+
+        return $this;
+    }
 }

@@ -1,0 +1,23 @@
+AppBundle\Entity\RacquetBase:
+  exclusion_policy: ALL
+  properties:
+    id:
+      groups: ['racquet_base']
+    headSize:
+      groups: ['racquet_base']
+    balance:
+      groups: ['racquet_base']
+    staticWeight:
+      groups: ['racquet_base']
+    swingWeight:
+      groups: ['racquet_base']
+    twistWeight:
+      groups: ['racquet_base']
+    recoilWeight:
+      groups: ['racquet_base']
+    distanceToTopString:
+      groups: ['racquet_base']
+    brand:
+      groups: ['racquet_base']
+    stringingPattern:
+      groups: ['racquet_base']

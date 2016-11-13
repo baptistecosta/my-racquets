@@ -1,12 +1,19 @@
 AppBundle\Entity\Racquet:
-  racquet.pro_staff_classic_6_1:
-    brand: "@brand.wilson"
-    staticWeight: 341
-    headSize: 610
-    stringingPattern: "@stringing_pattern.16x18"
+  racquet.wilson.pro_staff_classic_6_1:
+    headSize: 613
     balance: 30.5
+    length: 68.5
+    stiffness: 69
+    beamWidth: 21
+    staticWeight: 341
+    swingWeight: 326
+    twistWeight: ~
+    recoilWeight: ~
+    distanceToTopString: 67.1
+    model: "@racquet_model.wilson.pro_staff_classic_6_1"
+    brand: "@brand.wilson"
+    stringingPattern: "@stringing_pattern.16x18"
     string: "@racquet_string.msv_hex"
     dampener: "@dampener.babolat-3-gr"
     overGrip: "@over_grip.babolat-thin"
-    distanceToTopString: 67.1
     user: "@user.baptiste"

@@ -92,4 +92,20 @@ class MeControllerTest extends AbstractWebTestCase
             ->expectStatusCode(Response::HTTP_OK)
             ->expectJsonContentFromYaml(__DIR__.'/_expected/me/my_racquets.yml');
     }
+
+    /**
+     * Test "createRacquet" action
+     *
+     * @purgeDatabaseAndLoadFixtures
+     */
+    public function testCreateRacquet()
+    {
+        $client = static::createAuthenticatedClient(User::EMAIL_BAPTISTE, 'testtest');
+
+        $asserter = new RequestAsserter($this, $client);
+        $asserter
+            ->post('/me/racquets', $this->parseFile(__DIR__.'/_posted/me/me_create_racquet.yml'))
+            ->expectStatusCode(Response::HTTP_CREATED)
+            ->expectJsonContentFromYaml(__DIR__.'/_expected/me/me_create_racquet.yml');
+    }
 }

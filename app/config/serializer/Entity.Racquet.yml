@@ -3,21 +3,17 @@ AppBundle\Entity\Racquet:
   properties:
     id:
       groups: ['racquet.l']
-    staticWeight:
-      groups: ['racquet.l']
-    balance:
-      groups: ['racquet.l']
-    headSize:
-      groups: ['racquet.l']
-    distanceToTopString:
+    model:
       groups: ['racquet.l']
     brand:
       groups: ['racquet.l']
-    stringingPattern:
-      groups: ['racquet.l']
+    string:
+    string:
     string:
       groups: ['racquet.l']
     dampener:
       groups: ['racquet.l']
     overGrip:
+      groups: ['racquet.l']
+    user:
       groups: ['racquet.l']

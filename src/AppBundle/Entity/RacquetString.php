@@ -41,4 +41,12 @@ class RacquetString
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Racquet", mappedBy="string")
      */
     private $raquets;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }

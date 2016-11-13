@@ -3,6 +3,7 @@ include:
   - dampener.yml
   - over_grip.yml
   - racquet.yml
+  - racquet_model.yml
   - racquet_string.yml
   - racquet_string_type.yml
   - stringing_pattern.yml

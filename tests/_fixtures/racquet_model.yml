@@ -1,0 +1,43 @@
+AppBundle\Entity\RacquetModel:
+  racquet_model.wilson.pro_staff_classic_6_1:
+    headSize: 613
+    balance: 30.5
+    length: 68.5
+    stiffness: 69
+    beamWidth: 21
+    staticWeight: 341
+    swingWeight: 326
+    twistWeight: ~
+    recoilWeight: ~
+    distanceToTopString: 67.1
+    brand: "@brand.wilson"
+    stringingPattern: "@stringing_pattern.16x18"
+    releaseYear: ~
+  racquet_model.wilson.pro_staff_97_rf_autograph_2015:
+    headSize: 626
+    balance: 30.5
+    length: 68.5
+    stiffness: 68
+    beamWidth: 21.5
+    staticWeight: 340
+    swingWeight: 335
+    twistWeight: ~
+    recoilWeight: ~
+    distanceToTopString: 67.4
+    brand: "@brand.wilson"
+    stringingPattern: "@stringing_pattern.16x19"
+    releaseYear: 2015
+  racquet_model.wilson.pro_staff_6_0_85:
+    headSize: 548
+    balance: 30.5
+    length: 68.6
+    stiffness: 62
+    beamWidth: 17
+    staticWeight: 340
+    swingWeight: 321
+    twistWeight: ~
+    recoilWeight: ~
+    distanceToTopString: ~
+    brand: "@brand.wilson"
+    stringingPattern: "@stringing_pattern.16x18"
+    releaseYear: 2015

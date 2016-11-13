@@ -1,14 +1,31 @@
 ---
 - staticWeight: 341
-  headSize: 610
-  balance: 30.5
-  distanceToTopString: 67.1
+  swingWeight: 326
+  twistWeight:
+  recoilWeight:
+  headSize: 613
+  balance: '30.5'
+  distanceToTopString: '67.1'
   brand:
     slug: wilson
     name: Wilson
   stringingPattern:
     mains: 16
-    crosses: 19
+    crosses: 18
+  model:
+    staticWeight: 341
+    swingWeight: 326
+    twistWeight:
+    recoilWeight:
+    headSize: 613
+    balance: '30.5'
+    distanceToTopString: '67.1'
+    brand:
+      slug: wilson
+      name: Wilson
+    stringingPattern:
+      mains: 16
+      crosses: 18
   string:
     name: MSV Hex
     type:
@@ -20,3 +37,7 @@
   overGrip:
     slug: babolat-thin
     name: Babolat Thin
+  user:
+    firstname: Baptiste
+    lastname: Costa
+    email: baptiste.costa@gmail.com

@@ -1,43 +1,51 @@
 ---
-staticWeight: 341
+staticWeight: 356
+headSize: 613
+balance: 30.5
 swingWeight: 326
 twistWeight:
 recoilWeight:
-headSize: 613
-balance: '30.5'
-distanceToTopString: '67.1'
+distanceToTopString: 67.1
 brand:
+  id: 2
   slug: wilson
   name: Wilson
 stringingPattern:
+  id: 2
   mains: 16
-  crosses: 18
+  crosses: 19
+id: 2
 model:
-  staticWeight: 341
-  swingWeight: 326
+  staticWeight: 340
+  headSize: 626
+  balance: '30.5'
+  swingWeight: 335
   twistWeight:
   recoilWeight:
-  headSize: 613
-  balance: '30.5'
-  distanceToTopString: '67.1'
+  distanceToTopString: '67.4'
   brand:
+    id: 2
     slug: wilson
     name: Wilson
   stringingPattern:
+    id: 2
     mains: 16
-    crosses: 18
+    crosses: 19
+  id: 2
 string:
-  name: MSV Hex
+  id: 1
+  name: Luxilon BB ALU Power 1,25 mm
   type:
+    id: 1
     slug: monofilament
     name: Monofilament
 dampener:
-  slug: babolat-3-gr
-  name: Babolat 3 gr
 overGrip:
-  slug: babolat-thin
-  name: Babolat Thin
+  id: 2
+  slug: wilson-pro-overgrip
+  name: Wilson Pro Overgrip
 user:
+  id: 1
   firstname: Baptiste
   lastname: Costa
   email: baptiste.costa@gmail.com

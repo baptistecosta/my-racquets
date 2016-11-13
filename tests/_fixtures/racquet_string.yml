@@ -1,4 +1,7 @@
 AppBundle\Entity\RacquetString:
+  racquet_string.luxilon_bb_alu_power_1_25:
+    name: "Luxilon BB ALU Power 1,25 mm"
+    type: "@racquet_string_type.monofilament"
   racquet_string.msv_hex:
     name: "MSV Hex"
     type: "@racquet_string_type.monofilament"
