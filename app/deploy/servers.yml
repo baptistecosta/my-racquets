@@ -1,4 +1,4 @@
-staging:
+production:
     host: bcosta.o2switch.net
     user: bcosta
     stage: production
