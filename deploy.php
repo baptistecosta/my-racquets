@@ -24,7 +24,7 @@ set('shared_dirs', ['var/logs', 'var/sessions', 'var/jwt']);
  * Tasks
  */
 task('deploy:vendors', function () {
-    run('cd {{release_path}} && composer install');
+    run('cd {{release_path}} && composer.phar install');
 })->desc('Composer install');
 
 task('deploy:writable', function () {
