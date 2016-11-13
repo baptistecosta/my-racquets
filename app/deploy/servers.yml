@@ -1,10 +1,10 @@
 staging:
-    host: sfa-web12.srv.proceau.net
-    user: admin
-    stage: staging
-    branch: development
+    host: bcosta.o2switch.net
+    user: bcosta
+    stage: production
+    branch: master
     identity_file:
-        private_key: /home/ubuntu/.ssh/id_staging
+        private_key: /home/baptiste/.ssh/id_rsa
         password:
-    deploy_path: /home/web/sefaireaider.com/staging/api-trust
+    deploy_path: ~/my-racquet/api
     forward_agent:

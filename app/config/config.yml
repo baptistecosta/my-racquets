@@ -8,7 +8,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    app_name: api_trust
+    app_name: api_my_racquet
     jms_serializer.camel_case_naming_strategy.class: 'JMS\Serializer\Naming\IdenticalPropertyNamingStrategy'
 
 framework:

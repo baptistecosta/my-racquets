@@ -4,10 +4,17 @@ require 'recipe/symfony3.php';
 
 serverList('app/deploy/servers.yml');
 
+env('release_path', function () {
+    $result = explode("\n", run("readlink {{deploy_path}}/release"));
+    $result = ($result[0] != "stdin: is not a tty") ? $result[0] : $result[1];
+
+    return str_replace("\n", '', $result);
+});
+
 /**
  * Configuration
  */
-set('repository', 'git@bitbucket.org:sefaireaider/trust-api.git');
+set('repository', 'https://github.com/baptistecosta/my-racquets.git');
 set('keep_releases', 5);
 set('writable_use_sudo', false);
 set('shared_files', ['app/config/parameters.yml', 'web/.htaccess']);
