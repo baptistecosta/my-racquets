@@ -35,6 +35,10 @@ task('app:load-fixtures', function () {
     run('cd {{release_path}} && bin/console app:load-fixtures -f');
 })->desc('Permissions on cache dir');
 
+task('database:update', function () {
+    run('cd {{release_path}} && bin/console doctrine:schema:update --force');
+})->desc('Permissions on cache dir');
+
 task('deploy', [
     'deploy:prepare',
     'deploy:release',
@@ -42,7 +46,8 @@ task('deploy', [
     'deploy:create_cache_dir',
     'deploy:shared',
     'deploy:vendors',
-    'database:migrate',
+//    'database:migrate',
+    'database:update',
     'app:load-fixtures',
     'deploy:cache:warmup',
     'deploy:writable',
