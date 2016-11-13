@@ -24,7 +24,7 @@ set('shared_dirs', ['var/logs', 'var/sessions', 'var/jwt']);
  * Tasks
  */
 task('deploy:vendors', function () {
-    run('cd {{release_path}} && ./composer.phar install 2>&1');
+    run('cd {{release_path}} && ./composer.phar install -n');
 })->desc('Composer install');
 
 task('deploy:writable', function () {
@@ -38,11 +38,11 @@ task('deploy', [
     'deploy:create_cache_dir',
     'deploy:shared',
     'deploy:vendors',
+    'database:migrate',
     'deploy:cache:warmup',
     'deploy:writable',
     'deploy:symlink',
     'cleanup',
 ])->desc('Deploy your project');
 
-//after('deploy:vendors', 'database:migrate');
 after('deploy', 'success');
