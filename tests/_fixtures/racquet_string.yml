@@ -5,3 +5,6 @@ AppBundle\Entity\RacquetString:
   racquet_string.msv_hex:
     name: "MSV Hex"
     type: "@racquet_string_type.monofilament"
+  racquet_string.weiss_canon_scorpion:
+    name: "WeissCANON Scorpion"
+    type: "@racquet_string_type.monofilament"

@@ -35,6 +35,11 @@ class RacquetModel extends RacquetBase
         $this->racquets = new ArrayCollection();
     }
 
+    function __toString()
+    {
+        return sprintf('%s %s', $this->getBrandName(), $this->getName());
+    }
+
     /**
      * @return int
      */

@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -18,6 +17,12 @@ class DefaultController extends AbstractController
      */
     public function indexAction()
     {
-        return $this->render('default/index.html.twig');
+        $em = $this->get('doctrine.orm.entity_manager');
+
+        $racquetRepository = $em->getRepository('AppBundle:Racquet');
+
+        $racquets = $racquetRepository->findAll();
+
+        return $this->render('default/index.html.twig', ['racquets' => $racquets]);
     }
 }

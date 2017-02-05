@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Service\Math;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,6 +10,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class RacquetBase
 {
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", nullable=true)
+     */
+    protected $name;
+
     /**
      * In grams
      *
@@ -84,6 +92,13 @@ class RacquetBase
     protected $distanceToTopString;
 
     /**
+     * @var float
+     *
+     * @ORM\Column(name="swing_time", type="decimal", precision=3, scale=2, nullable=true)
+     */
+    protected $swingTime;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="release_year", type="integer", nullable=true)
@@ -105,6 +120,25 @@ class RacquetBase
      * @ORM\JoinColumn(name="stringing_pattern_id")
      */
     protected $stringingPattern;
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
 
     /**
      * @return int
@@ -297,6 +331,25 @@ class RacquetBase
     }
 
     /**
+     * @return float
+     */
+    public function getSwingTime()
+    {
+        return $this->swingTime;
+    }
+
+    /**
+     * @param float $swingTime
+     * @return $this
+     */
+    public function setSwingTime($swingTime)
+    {
+        $this->swingTime = $swingTime;
+
+        return $this;
+    }
+
+    /**
      * @return int
      */
     public function getReleaseYear()
@@ -321,6 +374,14 @@ class RacquetBase
     public function getBrand()
     {
         return $this->brand;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBrandName()
+    {
+        return $this->getBrand() ? $this->getBrand()->getName() : '';
     }
 
     /**
@@ -351,5 +412,42 @@ class RacquetBase
         $this->stringingPattern = $stringingPattern;
 
         return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function computeSwingWeight()
+    {
+        $m = $this->getStaticWeight() / 1000;
+        $l = $this->getLength();
+        $r = $this->getBalance();
+
+        return (int) ((1 / 12) * $m * $l * $l + (1 / 2) * $m * $r * $l - 20 * $m * $r + 100 * $m);
+    }
+
+    /**
+     * @return float
+     */
+    public function computeMGRI()
+    {
+        $r = $this->getBalance();
+        $t = $this->getSwingTime();
+        $h = $this->getDistanceToTopString();
+
+        $mgri = Math::TWO_PI_SQUARE * Math::G * $r / ($t * $t * Math::G * ($h - $r) + Math::TWO_PI_SQUARE * $h * (2 * $r - $h));
+
+        return number_format($mgri, 2);
+    }
+
+    /**
+     * @return int
+     */
+    public function computeMR2()
+    {
+        $m = $this->getStaticWeight() / 1000;
+        $r = $this->getBalance();
+
+        return (int) ($m * $r ** 2);
     }
 }

@@ -84,6 +84,14 @@ class User implements UserInterface
     }
 
     /**
+     * @return string
+     */
+    function __toString()
+    {
+        return $this->getName();
+    }
+
+    /**
      * @return integer
      */
     public function getId()
@@ -129,6 +137,20 @@ class User implements UserInterface
     public function getLastname()
     {
         return $this->lastname;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return trim(
+            sprintf(
+                '%s %s',
+                $this->getFirstname(),
+                $this->getLastname()
+            )
+        );
     }
 
     /**

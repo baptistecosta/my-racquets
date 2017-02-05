@@ -1,19 +1,40 @@
 AppBundle\Entity\Racquet:
   racquet.wilson.pro_staff_classic_6_1:
+    name: "Pro Staff Classic"
     headSize: 613
-    balance: 30.5
-    length: 68.5
+    balance: 32.1
+    length: 69
     stiffness: 69
     beamWidth: 21
-    staticWeight: 341
-    swingWeight: 326
+    staticWeight: 351
+    swingWeight: ~
     twistWeight: ~
     recoilWeight: ~
-    distanceToTopString: 67.1
+    distanceToTopString: 64.9
+    swingTime: 1.38
     model: "@racquet_model.wilson.pro_staff_classic_6_1"
     brand: "@brand.wilson"
     stringingPattern: "@stringing_pattern.16x18"
+    string: "@racquet_string.weiss_canon_scorpion"
+    dampener: ~
+    overGrip: ~
+    user: "@user.baptiste"
+  racquet.wilson.blx_pro_staff_six_one_95:
+    headSize: 613
+    balance: 31.4
+    length: 68.7
+    stiffness: 63
+    beamWidth: 18
+    staticWeight: 353
+    swingWeight: ~
+    twistWeight: ~
+    recoilWeight: ~
+    distanceToTopString: 64.3
+    swingTime: 1.38
+    model: "@racquet_model.wilson.blx_pro_staff_six_one_95"
+    brand: "@brand.wilson"
+    stringingPattern: "@stringing_pattern.16x19"
     string: "@racquet_string.msv_hex"
-    dampener: "@dampener.babolat-3-gr"
-    overGrip: "@over_grip.babolat-thin"
+    dampener: ~
+    overGrip: ~
     user: "@user.baptiste"

@@ -43,10 +43,75 @@ class RacquetString
     private $raquets;
 
     /**
+     * @return string
+     */
+    function __toString()
+    {
+        return $this->getName();
+    }
+
+    /**
      * @return int
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return RacquetStringType
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param RacquetStringType $type
+     * @return $this
+     */
+    public function setType(RacquetStringType $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Racquet[]|ArrayCollection
+     */
+    public function getRaquets()
+    {
+        return $this->raquets;
+    }
+
+    /**
+     * @param Racquet[]|ArrayCollection $raquets
+     * @return $this
+     */
+    public function setRaquets(ArrayCollection $raquets)
+    {
+        $this->raquets = $raquets;
+
+        return $this;
     }
 }

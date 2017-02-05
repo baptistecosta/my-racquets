@@ -74,6 +74,7 @@ lexik_jwt_authentication:
 easy_admin:
     entities:
         - AppBundle\Entity\User
+        - AppBundle\Entity\Racquet
 
 jms_serializer:
     metadata:

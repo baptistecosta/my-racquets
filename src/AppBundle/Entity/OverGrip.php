@@ -58,6 +58,14 @@ class OverGrip
     }
 
     /**
+     * @return string
+     */
+    function __toString()
+    {
+        return $this->getName();
+    }
+
+    /**
      * @return int
      */
     public function getId()

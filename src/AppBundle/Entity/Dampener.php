@@ -48,4 +48,96 @@ class Dampener
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Racquet", mappedBy="dampener")
      */
     private $raquets;
+
+    /**
+     * @return string
+     */
+    function __toString()
+    {
+        return $this->getName();
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     * @return $this
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Brand
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
+     * @param Brand $brand
+     * @return $this
+     */
+    public function setBrand($brand)
+    {
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    /**
+     * @return Racquet[]|ArrayCollection
+     */
+    public function getRaquets()
+    {
+        return $this->raquets;
+    }
+
+    /**
+     * @param Racquet[]|ArrayCollection $raquets
+     * @return $this
+     */
+    public function setRaquets($raquets)
+    {
+        $this->raquets = $raquets;
+
+        return $this;
+    }
 }

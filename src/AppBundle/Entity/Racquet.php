@@ -114,6 +114,14 @@ class Racquet extends RacquetBase
     }
 
     /**
+     * @return string
+     */
+    public function getDampenerName()
+    {
+        return $this->getDampener() ? $this->getDampener()->getName() : '';
+    }
+
+    /**
      * @param Dampener $dampener
      * @return $this
      */

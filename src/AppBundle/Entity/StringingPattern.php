@@ -42,6 +42,14 @@ class StringingPattern
     private $racquets;
 
     /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return sprintf('%sx%s', $this->getMains(), $this->getCrosses());
+    }
+
+    /**
      * @return int
      */
     public function getId()

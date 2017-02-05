@@ -40,4 +40,66 @@ class RacquetStringType
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\RacquetString", mappedBy="type")
      */
     private $strings;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     * @return $this
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return Racquet[]|ArrayCollection
+     */
+    public function getStrings()
+    {
+        return $this->strings;
+    }
+
+    /**
+     * @param Racquet[]|ArrayCollection $strings
+     * @return $this
+     */
+    public function setStrings(ArrayCollection $strings)
+    {
+        $this->strings = $strings;
+        return $this;
+    }
 }
