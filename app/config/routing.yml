@@ -2,6 +2,11 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
+front:
+    resource: "@AppBundle/Controller/Front"
+    type:     annotation
+    prefix:   /front
+
 easy_admin_bundle:
     resource: "@EasyAdminBundle/Controller/"
     type:     annotation
