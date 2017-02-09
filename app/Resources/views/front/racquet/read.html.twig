@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <div id="root">
+				<h1>Racquet</h1>
+                {{ dump(racquet) }}
+
+                <input type="range"  min="0" max="100" />
+
+			</div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="application/javascript" src="{{ asset('static/bundle.js') }}"></script>
+{% endblock %}

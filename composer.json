@@ -1,5 +1,5 @@
 {
-    "name": "vagrant/api.trust",
+    "name": "baptistecosta/myracquets",
     "license": "proprietary",
     "type": "project",
     "autoload": {
@@ -17,7 +17,7 @@
         }
     },
     "require": {
-        "php": "7.1.1",
+        "php": ">=5.5.9",
         "symfony/symfony": "3.1.*",
         "symfony/swiftmailer-bundle": "^2.3",
         "symfony/monolog-bundle": "^2.8",
