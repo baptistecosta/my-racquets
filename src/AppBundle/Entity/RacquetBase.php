@@ -94,7 +94,7 @@ class RacquetBase
     /**
      * @var float
      *
-     * @ORM\Column(name="swing_time", type="decimal", precision=3, scale=2, nullable=true)
+     * @ORM\Column(name="swing_time", type="decimal", precision=4, scale=3, nullable=true)
      */
     protected $swingTime;
 
@@ -431,9 +431,13 @@ class RacquetBase
      */
     public function computeMGRI()
     {
+        if (!$t = $this->getSwingTime()) {
+            return null;
+        }
+        if (!$h = $this->getDistanceToTopString()) {
+            return null;
+        }
         $r = $this->getBalance();
-        $t = $this->getSwingTime();
-        $h = $this->getDistanceToTopString();
 
         $mgri = Math::TWO_PI_SQUARE * Math::G * $r / ($t * $t * Math::G * ($h - $r) + Math::TWO_PI_SQUARE * $h * (2 * $r - $h));
 

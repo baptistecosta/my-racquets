@@ -8,14 +8,14 @@
                 <table class="table table-hover table-condensed table-stripped">
                     <thead>
                     <tr>
-                        <th>Model</th>
                         <th>Year</th>
-                        <th><abbr title="Static weight">W</abbr></th>
-                        <th><abbr title="Length">L</abbr></th>
-                        <th><abbr title="Head size">HS</abbr></th>
+                        <th>Model</th>
                         <th><abbr title="Stringing pattern">SP</abbr></th>
                         <th><abbr title="Strings">Strings</abbr></th>
                         <th><abbr title="Dampener">Damp.</abbr></th>
+                        <th><abbr title="Static weight">W</abbr></th>
+                        <th><abbr title="Length">L</abbr></th>
+                        <th><abbr title="Head size">HS</abbr></th>
                         <th><abbr title="Beam width">BW</abbr></th>
                         <th><abbr title="Stiffness">St.</abbr></th>
                         <th><abbr title="Balance">Bal.</abbr></th>
@@ -29,14 +29,14 @@
                     <tbody>
                     {% for racquet in racquets %}
                     <tr>
-                        <td>{{ racquet.model.brand.name }} {{ racquet.model.name }}</td>
                         <td>{{ racquet.model.releaseYear }}</td>
-                        <td>{{ racquet.staticWeight }}</td>
-                        <td>{{ racquet.length }}</td>
-                        <td>{{ (racquet.headSize * 0.155)|number_format }}</td>
+                        <td>{{ racquet.model.brand.name }} {{ racquet.name }}</td>
                         <td>{{ racquet.stringingPattern }}</td>
                         <td>{{ racquet.string.name }}</td>
                         <td>{{ racquet.dampenerName }}</td>
+                        <td>{{ racquet.staticWeight }}</td>
+                        <td>{{ racquet.length }}</td>
+                        <td>{{ (racquet.headSize * 0.155)|number_format }}</td>
                         <td>{{ racquet.beamWidth }}</td>
                         <td>{{ racquet.stiffness }}</td>
                         <td>{{ racquet.balance }}</td>
