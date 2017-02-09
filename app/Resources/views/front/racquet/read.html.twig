@@ -1,19 +1,337 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="root">
-				<h1>Racquet</h1>
-                {{ dump(racquet) }}
-
-                <input type="range"  min="0" max="100" />
-
-			</div>
-        </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Racquet</h3>
     </div>
+    <div class="panel-body">
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.brand, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.model, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.headSize, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.stringingPattern, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.stiffness, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.string, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.dampener, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.overGrip, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.staticWeight, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+                <input id="staticWeightSlider"
+                       type="range"
+                       min="250"
+                       max="400"
+                       value="{{ form.vars.value.staticWeight }}" />
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.balance, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+                <input id="balanceSlider"
+                       type="range"
+                       min="29"
+                       max="35"
+                       step="0.1"
+                       value="{{ form.vars.value.balance }}" />
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.distanceToTopString, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+                <input id="distanceToTopStringSlider"
+                       type="range"
+                       min="60"
+                       max="70"
+                       step="0.1"
+                       value="{{ form.vars.value.distanceToTopString }}" />
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.swingTime, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+                <input id="swingTimeSlider"
+                       type="range"
+                       min="1.35"
+                       max="1.40"
+                       step="0.001"
+                       value="{{ form.vars.value.swingTime }}" />
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.length, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.beamWidth, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.swingWeight, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.twistWeight, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    {{ form_row(form.recoilWeight, {
+                        attr: {
+                            class: 'form-control',
+                        }
+                    }) }}
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="mgri">MGR/I</label>
+                    <input type="text" id="mgri" class="form-control" disabled>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="mr2">MR2</label>
+                    <input type="text" id="mr2" class="form-control" disabled>
+                </div>
+            </div>
+        </div>
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+</div>
 {% endblock %}
 
 {% block javascripts %}
     <script type="application/javascript" src="{{ asset('static/bundle.js') }}"></script>
+    <script>
+
+        const PI = 3.14159265359;
+        const TWO_PI_SQUARE = Math.pow(2 * PI, 2);
+        const G = 980.5;
+
+        function computeMgri(swingTime, distanceToTopString, balance) {
+            var t = swingTime;
+            var h = distanceToTopString;
+            var r = balance;
+
+            var mgri = TWO_PI_SQUARE * G * r / (t * t * G * (h - r) + TWO_PI_SQUARE * h * (2 * r - h));
+
+            return mgri.toFixed(2);
+        }
+
+        function computeSwingWeight(staticWeight, length, balance) {
+            var m = staticWeight / 1000;
+            var l = length;
+            var r = balance;
+
+            return parseInt((1 / 12) * m * l * l + (1 / 2) * m * r * l - 20 * m * r + 100 * m);
+        }
+
+        function computeMr2(staticWeight, balance)
+        {
+            var m = staticWeight / 1000;
+            var r = balance;
+
+            return parseInt(m * r * r);
+        }
+
+        function updateMgri() {
+            var swingTime = $('#racquet_swingTime').val();
+            var distanceToTopString = $('#racquet_distanceToTopString').val();
+            var balance = $('#racquet_balance').val();
+
+            var mgri = computeMgri(swingTime, distanceToTopString, balance);
+
+            $('#mgri').val(mgri);
+        }
+
+        function updateSwingWeight() {
+            var staticWeight = $('#racquet_staticWeight').val();
+            var length = $('#racquet_length').val();
+            var balance = $('#racquet_balance').val();
+
+            var swingWeight = computeSwingWeight(staticWeight, length, balance);
+
+            $('#racquet_swingWeight').val(swingWeight);
+        }
+
+        function updateMr2() {
+            var staticWeight = $('#racquet_staticWeight').val();
+            var balance = $('#racquet_balance').val();
+
+            var mr2 = computeMr2(staticWeight, balance);
+
+            $('#mr2').val(mr2);
+        }
+
+        function updateVariables() {
+            updateMgri();
+            updateMr2();
+            updateSwingWeight();
+        }
+
+        $(document).ready(function() {
+            $('#staticWeightSlider').on('input change', function() {
+                $('#racquet_staticWeight').val($(this).val());
+
+                updateVariables();
+            });
+
+            $('#balanceSlider').on('input change', function() {
+                $('#racquet_balance').val($(this).val());
+
+                updateVariables();
+            });
+
+            $('#distanceToTopStringSlider').on('input change', function() {
+                $('#racquet_distanceToTopString').val($(this).val());
+
+                updateVariables();
+            });
+
+            $('#swingTimeSlider').on('input change', function() {
+                $('#racquet_swingTime').val($(this).val());
+
+                updateVariables();
+            });
+
+            $('#racquet_staticWeight').change(function() {
+                $('#staticWeightSlider').val($(this).val());
+
+                updateVariables();
+            });
+
+            $('#racquet_balance').change(function() {
+                $('#balanceSlider').val($(this).val());
+
+                updateVariables();
+            });
+
+            $('#racquet_distanceToTopString').change(function() {
+                $('#distanceToTopStringSlider').val($(this).val());
+
+                updateVariables();
+            });
+
+            $('#racquet_swingTime').change(function() {
+                $('#swingTimeSlider').val($(this).val());
+
+                updateVariables();
+            });
+
+            $('#racquet_length').change(function() {
+                updateVariables();
+            });
+
+            updateVariables();
+        });
+    </script>
 {% endblock %}

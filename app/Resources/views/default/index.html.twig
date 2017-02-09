@@ -30,7 +30,11 @@
                     {% for racquet in racquets %}
                     <tr>
                         <td>{{ racquet.model.releaseYear }}</td>
-                        <td>{{ racquet.model.brand.name }} {{ racquet.name }}</td>
+                        <td>
+                            <a href="/front/racquets/{{ racquet.id }}">
+                                {{ racquet.model.brand.name }} {{ racquet.name }}
+                            </a>
+                        </td>
                         <td>{{ racquet.stringingPattern }}</td>
                         <td>{{ racquet.string.name }}</td>
                         <td>{{ racquet.dampenerName }}</td>

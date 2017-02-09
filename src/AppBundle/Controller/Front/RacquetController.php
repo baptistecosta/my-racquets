@@ -3,6 +3,7 @@
 namespace AppBundle\Controller\Front;
 
 use AppBundle\Entity\Racquet;
+use AppBundle\Form\Type\RacquetType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -23,6 +24,10 @@ class RacquetController extends Controller
      */
     public function getAction(Racquet $racquet)
     {
-        return $this->render('front/racquet/read.html.twig', ['racquet' => $racquet]);
+        $form = $this->createForm(RacquetType::class, $racquet);
+
+        return $this->render('front/racquet/read.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }

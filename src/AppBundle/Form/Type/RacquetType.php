@@ -34,6 +34,7 @@ class RacquetType extends AbstractType
             ->add('twistWeight')
             ->add('recoilWeight')
             ->add('distanceToTopString')
+            ->add('swingTime')
         ;
     }
 
