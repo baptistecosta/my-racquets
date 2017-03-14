@@ -2,7 +2,7 @@
 
 require 'recipe/symfony3.php';
 
-serverList('app/deploy/servers.yml');
+serverList('servers.yml');
 
 env('release_path', function () {
     $result = explode("\n", run("readlink {{deploy_path}}/release"));

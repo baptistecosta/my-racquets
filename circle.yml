@@ -21,9 +21,9 @@ dependencies:
 
 deployment:
   staging:
-    branch: development
+    branch: master
     commands:
-      - vendor/bin/dep deploy staging
+      - vendor/bin/dep deploy prod
 
 test:
   post:

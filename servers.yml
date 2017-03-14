@@ -1,7 +1,7 @@
-production:
+prod:
     host: bcosta.o2switch.net
     user: bcosta
-    stage: production
+    stage: prod
     branch: master
     identity_file:
         private_key: /home/baptiste/.ssh/id_rsa
