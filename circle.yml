@@ -26,8 +26,8 @@ deployment:
       - vendor/bin/dep deploy prod
 
 test:
-  post:
-    - vendor/bin/phpcs --standard="Symfony2" --extensions="php" -n --ignore=vendor src tests
+  override:
+    - echo "No tests setup yet"
 
 database:
   pre:
