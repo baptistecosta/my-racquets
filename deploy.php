@@ -46,7 +46,6 @@ task('deploy', [
     'deploy:create_cache_dir',
     'deploy:shared',
     'deploy:vendors',
-//    'database:migrate',
     'database:update',
     'app:load-fixtures',
     'deploy:cache:warmup',

@@ -28,7 +28,3 @@ deployment:
 test:
   override:
     - echo "No tests setup yet"
-
-database:
-  pre:
-    - bin/console doctrine:migrations:migrate --env=test --no-interaction
